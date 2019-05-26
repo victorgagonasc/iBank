@@ -1,0 +1,71 @@
+{
+  "name": "iBank",
+  "version": "1.0.0",
+  "description": "Node REST API for iBank PWA",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "build": "tsc",
+    "dev": "ts-node-dev src/server.ts",
+    "start": "nodemon ./dist/server.js",
+    "prod": "npm run build && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorgagonasc/iBank.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorgagonasc/iBank/issues"
+  },
+  "homepage": "https://github.com/victorgagonasc/iBank#readme",
+  "dependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/cors": "^2.8.5",
+    "@types/express": "^4.16.1",
+    "@types/helmet": "0.0.43",
+    "@types/morgan": "^1.7.35",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1",
+    "ts-node": "^8.2.0",
+    "typescript": "^3.4.5"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.13",
+    "@types/supertest": "^2.0.7",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.17.1",
+    "supertest": "^4.0.2",
+    "ts-jest": "^24.0.2",
+    "ts-node-dev": "^1.0.0-pre.39"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/tests/*.+(ts|tsx|js)"
+    ]
+  }
+}
