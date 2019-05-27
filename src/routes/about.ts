@@ -3,6 +3,6 @@ import AboutController from '../controllers/about.controller';
 
 const router = Router();
 
-router.get('/', AboutController.getInfo)
+router.get('/', AboutController.getInfo);
 
 export default router;
