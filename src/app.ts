@@ -10,7 +10,6 @@ import routes from './routes/index';
 
 class App {
     public app: express.Application;
-    public port: number;
 
     constructor() {
         this.app = express();
