@@ -54,7 +54,8 @@ const UserSchema = new Schema({
     balance: {
         type: Number,
         trim: true,
-        required: true
+        required: true,
+        default: 200
     },
     createdDate: {
         type: Date,
