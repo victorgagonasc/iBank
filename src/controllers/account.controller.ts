@@ -28,7 +28,9 @@ export default class UserController {
                 return res.status(422).json({ message: 'Invalid value' });
             }
 
-            const recipient: IUser = await User.findOne({ identification: req.body.destination });
+            const recipient: IUser = await User.findOne({ identification: req.body.identification });
+
+            if (!recipient) { return res.status(403).json({ message: 'Recipient not found'}); }
 
             const transference: ITransference = new Transference({
                 from: `${user.firstName} ${user.lastName}`,

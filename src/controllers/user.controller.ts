@@ -17,7 +17,7 @@ export default class UserController {
 
     static getById = async (req: Request, res: Response) => {
         try {
-            const user: IUser = await User.findById(req.params.id);
+            const user: IUser = await User.findById(res.locals.userId);
 
             if (!user) return res.status(404).json({ message: 'User not found' });
 
@@ -30,6 +30,13 @@ export default class UserController {
 
     static add = async (req: Request, res: Response) => {
         try {
+            const hasUser = await User.findOne({$or: [
+                {email: req.body.email},
+                {identification: req.body.identification}
+            ]});
+
+            if (hasUser) { return res.status(403).json({ message: 'A user already exists with this email / Identification' }); }
+
             const user: IUser = new User(req.body);
 
             const result = await user.save();

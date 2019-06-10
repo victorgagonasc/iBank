@@ -10,9 +10,9 @@ export default class AuthController {
         try {
             const user = await User.findOne({ email: req.body.email });
 
-            if (!user) return res.status(401).json({ message: 'Authentication failed. User not found' });
+            if (!user) return res.status(403).json({ message: 'Authentication failed. User not found' });
 
-            if (!User.comparePassword(req.body.password, user.password)) return res.status(401).json({ message: 'Authentication failed. Wrong password' });
+            if (!User.comparePassword(req.body.password, user.password)) return res.status(403).json({ message: 'Authentication failed. Wrong password' });
 
             return res.status(200).json({ data: user, token: jwt.sign({ id: user._id }, process.env.JWT_SECRET) });
         } catch (error) {

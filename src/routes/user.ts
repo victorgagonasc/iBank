@@ -5,7 +5,7 @@ import verifyJWT from '../middlewares/auth.validator';
 const router = Router();
 
 router.get('/', verifyJWT, UserController.getAll);
-router.get('/:id', verifyJWT, UserController.getById);
+router.get('/me', verifyJWT, UserController.getById);
 router.post('/', UserController.add);
 
 export default router;
